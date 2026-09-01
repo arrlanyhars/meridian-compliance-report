@@ -1,0 +1,30 @@
+# Firm B administers the same fund, same holdings, but reads three parts of
+# the guidelines differently. See sample_docs/firm_B_brief.md for the source
+# of each of these three settings. Nothing here is invented, each field
+# traces to one sentence in that brief.
+firm_id: firm_b
+firm_name: "Firm B"
+
+concentration:
+  # GRE issuers sharing a parent_issuer are grouped and tested as one entity.
+  # Redhill Power + Redhill Transport become "Redhill Holdings" for this check.
+  gre_grouping: parent_issuer
+
+non_ig_aggregate:
+  # A holding downgraded to BB+ or worse counts toward the non-IG aggregate
+  # even while its asset_class label still reads "Investment Grade Corporate
+  # Bonds": the fallen-angel case (Marina Bay Resorts, downgraded from BBB-).
+  include_fallen_angels: true
+
+formatting:
+  # Firm B's house style: truncated basis points instead of a 1-decimal
+  # percentage, e.g. 58.333% becomes "5833 bps", not "58.3%".
+  utilization_style: truncated_bps
+
+tolerance:
+  status_epsilon_pct: 0
+
+reconciliation:
+  # Firm B has no answer-key spreadsheet, only the three stated deltas in
+  # firm_B_brief.md. reconcile.py checks against that instead.
+  answer_key_path: null

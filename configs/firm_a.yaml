@@ -1,0 +1,23 @@
+# Firm A's house conventions. This is the default reading of the guidelines
+# document, and what the report must reconcile against in sample_docs/firm_A_answer_key.xlsx.
+firm_id: firm_a
+firm_name: "Firm A"
+
+concentration:
+  # GRE concentration is checked per legal issuer entity.
+  gre_grouping: issuer
+
+non_ig_aggregate:
+  # Only High Yield + Structured Credit asset classes count. A downgraded
+  # holding still sitting under "Investment Grade Corporate Bonds" is not
+  # pulled into the aggregate.
+  include_fallen_angels: false
+
+formatting:
+  utilization_style: percent_1dp
+
+tolerance:
+  status_epsilon_pct: 0
+
+reconciliation:
+  answer_key_path: sample_docs/firm_A_answer_key.xlsx
